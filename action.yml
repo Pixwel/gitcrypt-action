@@ -1,10 +1,6 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'gitcrypt'
+description: 'Unlocks gitcrypt secrets with a key'
+author: 'phishy'
 runs:
   using: 'docker'
   image: 'Dockerfile'

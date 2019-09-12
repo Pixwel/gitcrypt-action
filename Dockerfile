@@ -1,7 +1,13 @@
-FROM node:slim
+FROM amazonlinux
 
-COPY . .
+RUN yum update
+RUN yum -y install openssl-devel git;
+RUN yum -y groupinstall "Development Tools";
 
-RUN npm install --production
+WORKDIR /code
+RUN git clone https://github.com/AGWA/git-crypt.git;
+RUN cd git-crypt; make; make install;
 
-ENTRYPOINT ["node", "/lib/main.js"]
+ADD ./entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
